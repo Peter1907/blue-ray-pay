@@ -1,21 +1,16 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+%div
+  %h2.text-center.text-3xl.font-bold.m-0.mb-5.sm:mb-10.sm:text-4xl
+    Sign up
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field.mb-4
+      = f.text_field :name, autocomplete: "name", placeholder: "Full Name"
+    .field.mb-4
+      = f.email_field :email, autocomplete: "email", placeholder: "Email"
+    .field.mb-4
+      = f.password_field :password, autocomplete: "new-password", placeholder: "Password (min. 6 chars)"
+    .field.mb-4
+      = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password"
+    .actions.mb-10
+      = f.submit "Sign up"
+  = render "devise/shared/links"

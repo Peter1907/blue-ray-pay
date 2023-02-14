@@ -1,17 +1,15 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+%div
+  %h2.text-center.text-3xl.font-bold.m-0.mb-5.sm:mb-10.sm:text-4xl
+    Log in
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field.mb-4
+      = f.email_field :email, autocomplete: "email", placeholder: "Email"
+    .field.mb-4
+      = f.password_field :password, autocomplete: "current-password", placeholder: "Password"
+    - if devise_mapping.rememberable?
+      .field.mb-4
+        = f.check_box :remember_me
+        = f.label :remember_me
+    .actions.mb-10
+      = f.submit "Log in"
+  = render "devise/shared/links"

@@ -10,9 +10,18 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   %body
-    %main.container.mx-auto.mt-28.px-5.flex
-      %p.notice
-        = notice
-      %p.alert
-        = alert
+    %main.flex.flex-col.min-h-screen.items-center.font-p.font-normal.text-medium
+      - if current_user
+        = button_to "[➥", destroy_user_session_path, method: :delete,                 |
+          class: 'absolute top-28 right-2 p-2 font-bold hover:text-yellow             |
+            hover:shadow-lg hover:bg-black hover:bg-black/30 ease-in-out duration-300 |
+            rounded-md sm:text-xl lg:text-2xl xl:text-3xl sm:right-8                  |
+            lg:right-14 xl:right-20 2xl:right-28',                                    |
+          title: 'Log-out'
+      - if flash[:notice]
+        %p.notice.fixed.top-0.right-0.left-0.bg-green-100.text-green-500.text-center.py-2
+          = notice
+      - if flash[:alert]
+        %p.alert.fixed.top-0.right-0.left-0.bg-red-100.text-red-500.text-center.py-2
+          = alert
       = yield
