@@ -78,3 +78,5 @@ gem 'tailwindcss-rails', '~> 2.0'
 gem 'devise'
 
 gem "haml-rails", "~> 2.0"
+
+gem 'html2haml', '~> 2.3'
