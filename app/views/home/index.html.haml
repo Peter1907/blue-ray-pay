@@ -1,0 +1,6 @@
+.home-page.h-screen.flex.flex-col.items-center
+  .logo
+    = image_tag "/blue-ray.svg", alt: "Logo", class: "mt-32"
+  .buttons(class="mt-auto mb-14 w-[90%] flex flex-col items-center")
+    = link_to "LOG IN", new_user_session_path, class: "rounded bg-blue1 text-white py-4 w-[100%] text-center mb-4"
+    = link_to "SIGN UP", new_user_registration_path
