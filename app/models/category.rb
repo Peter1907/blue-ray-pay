@@ -7,4 +7,12 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
   validates :icon_data, presence: true
+
+  def total_invoices
+    total = 0
+    invoices.each do |invoice|
+      total += invoice.amount
+    end
+    total
+  end
 end

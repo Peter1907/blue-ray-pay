@@ -7,15 +7,15 @@
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = render "devise/shared/error_messages", resource: resource
       .field.mt-4
-        = f.text_field :name, autocomplete: "name", placeholder: "Full Name", class: "w-[100%] border-none h-14 px-4 placeholder:text-light"
+        = f.text_field :name, autocomplete: "name", placeholder: "Full Name", class: "w-[100%] border-none h-14 px-4 text-darker placeholder:text-light"
       %hr(class="border-t border-light w-[90%] m-auto")
       .field
-        = f.email_field :email, autocomplete: "email", placeholder: "Email", class: "w-[100%] border-none h-14 px-4 placeholder:text-light"
+        = f.email_field :email, autocomplete: "email", placeholder: "Email", class: "w-[100%] border-none h-14 px-4 text-darker placeholder:text-light"
       %hr(class="border-t border-light w-[90%] m-auto")
       .field
-        = f.password_field :password, autocomplete: "new-password", placeholder: "Password (min. 6 chars)", class: "w-[100%] border-none h-14 px-4 placeholder:text-light"
+        = f.password_field :password, autocomplete: "new-password", placeholder: "Password (min. 6 chars)", class: "w-[100%] border-none h-14 px-4 text-darker placeholder:text-light"
       %hr(class="border-t border-light w-[90%] m-auto")
       .field.mb-4
-        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "w-[100%] border-none h-14 px-4 placeholder:text-light"
+        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "w-[100%] border-none h-14 px-4 text-darker placeholder:text-light"
       .actions.mb-6.text-center
         = f.submit "Sign up", class: "rounded bg-blue1 text-white py-4 w-[95%] text-center mb-4 cursor-pointer active:scale-95"

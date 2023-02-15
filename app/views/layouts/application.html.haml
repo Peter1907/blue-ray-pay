@@ -10,7 +10,7 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   %body
-    %main.flex.flex-col.min-h-screen.items-center.font-p.font-normal.text-medium.bg-gray-50
+    %main.flex.flex-col.min-h-screen.items-center.font-p.font-normal.text-medium.bg-gray-100
       - if current_user
         = button_to "[➥", destroy_user_session_path, method: :delete,                 |
           class: 'absolute top-28 right-2 p-2 font-bold hover:text-yellow             |

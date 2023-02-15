@@ -6,10 +6,10 @@
   %div(class="form-container w-screen lg:w-[612px]")
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field.mt-4
-        = f.email_field :email, autocomplete: "email", placeholder: "Email", class: "w-[100%] border-none h-14 px-4 placeholder:text-light"
+        = f.email_field :email, autocomplete: "email", placeholder: "Email", class: "w-[100%] border-none h-14 px-4 text-darker placeholder:text-light"
       %hr(class="border-t border-light w-[90%] m-auto")
       .field.mb-4
-        = f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "w-[100%] border-none h-14 px-4 placeholder:text-light"
+        = f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "w-[100%] border-none h-14 px-4 text-darker placeholder:text-light"
       - if devise_mapping.rememberable?
         .field.mb-4.px-6.text-right
           = f.check_box :remember_me
