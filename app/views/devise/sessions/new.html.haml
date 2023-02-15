@@ -1,15 +1,19 @@
-%div
-  %h2.text-center.text-3xl.font-bold.m-0.mb-5.sm:mb-10.sm:text-4xl
-    Log in
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field.mb-4
-      = f.email_field :email, autocomplete: "email", placeholder: "Email"
-    .field.mb-4
-      = f.password_field :password, autocomplete: "current-password", placeholder: "Password"
-    - if devise_mapping.rememberable?
+%div.w-screen.flex.flex-col.items-center
+  .navbar.bg-gradient-to-b.from-blue1.to-blue2.h-24.w-screen.flex.items-center.text-white.justify-center.relative
+    %a{:href => home_index_path, :class => "absolute top-10 left-4 text-5xl"} ←
+    %h1.text-2xl.mt-8
+      LOGIN
+  %div(class="form-container w-screen lg:w-[612px]")
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field.mt-4
+        = f.email_field :email, autocomplete: "email", placeholder: "Email", class: "w-[100%] border-none h-14 px-4 placeholder:text-light"
+      %hr(class="border-t border-light w-[90%] m-auto")
       .field.mb-4
-        = f.check_box :remember_me
-        = f.label :remember_me
-    .actions.mb-10
-      = f.submit "Log in"
-  = render "devise/shared/links"
+        = f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "w-[100%] border-none h-14 px-4 placeholder:text-light"
+      - if devise_mapping.rememberable?
+        .field.mb-4.px-6.text-right
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .actions.mb-6.text-center
+        = f.submit "Log in", class: "rounded bg-blue1 text-white py-4 w-[95%] text-center mb-4 cursor-pointer active:scale-95"
+  = link_to "Forgot your password?", new_password_path(resource_name)
