@@ -3,14 +3,14 @@
     %a{:href => categories_path, :class => "absolute top-12 left-4 text-2xl"} ☰
     %h1.text-2xl.mt-8
       CATEGORIES
-  .list.w-screen.flex.flex-col.items-center.px-2.py-4
+  .list.w-screen.flex.flex-col.items-center.p-2
     - if @categories.length > 0
       - @categories.each do |category|
-        %div(class="bg-white rounded p-4 w-[100%] max-w-[612px] text-center mt-auto flex items-stretch gap-4")
+        = link_to transactions_path(category), class: "bg-white rounded p-4 my-2 w-[100%] max-w-[612px] text-center flex items-stretch gap-4" do
           %img{:src => category.icon(:small).url, :class => "w-24 h-24"}
           .info.flex.flex-col.justify-between.w-full
             %h3.text-2xl.font-semibold.text-darker.self-start.cursor-pointer
-              = link_to category.name, transactions_path(category)
+              = category.name
             %p.self-end
               %span.text-dark
                 Total transactions:

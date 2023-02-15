@@ -1,3 +1,19 @@
 .transaction-form
   %h1 New Transaction
-  = link_to t('.back'), transactions_path
+  = form_with model: @invoice, url: transactions_path, method: :post do |f|
+    .field
+      = f.label "Name:"
+      = f.text_field :name, placeholder: "Name", class: "w-[100%] border-none h-14 px-4 text-darker placeholder:text-light"
+    .field
+      = f.label "Category:"
+      - if @categories.empty?
+        %p You have no categories yet. Please create one first.
+      - else
+        - @categories.each do |category|
+          = f.check_box :categories, { multiple: true }, category.id, nil
+          = f.label category.name
+    .field
+      = f.label "Amount:"
+      = f.number_field :amount, placeholder: "Amount", class: "w-[100%] border-none h-14 px-4 text-darker placeholder:text-light"
+    .actions
+      = f.submit "Create", class: "rounded bg-blue1 text-white py-4 w-[95%] text-center mt-auto cursor-pointer active:scale-95"
