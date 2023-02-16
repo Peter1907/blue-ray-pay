@@ -4,11 +4,11 @@
     %h1.text-2xl.mt-8
       NEW CATEGORY
   .form-container
-    = form_with model: @category, url: categories_path, method: :post do |f|
+    = form_with model: @category, url: categories_path, method: :post, class: "w-screen max-w-[612px] p-2" do |f|
       .field.my-4
         = f.text_field :name, placeholder: "Name", class: "w-[100%] border-none h-14 px-4 text-darker placeholder:text-light"
-      .field.flex.items-center.mb-8.ml-2.gap-2
-        = f.label "Icon:", class: "text-darker text-lg font-semibold"
+      .field.flex.items-center.mb-8.ml-6.gap-2
+        = f.label "Icon:", class: "text-darker text-lg"
         = f.file_field :icon
       .actions.text-center
         = f.submit "Create", class: "rounded bg-blue1 text-white py-4 w-[95%] text-center mt-auto cursor-pointer active:scale-95"

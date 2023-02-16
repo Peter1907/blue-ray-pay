@@ -22,11 +22,12 @@ class InvoicesController < ApplicationController
     @invoice.user = current_user
 
     if @invoice.save
+      category_ids = record_params[:categories].map(&:to_i)
       record_params[:categories].each do |id|
-        Record.create(invoice: @invoice, category_id: id.to_i)
+        Record.create(invoice: @invoice, category_id: id)
       end
       flash[:notice] = 'Transaction created successfully'
-      redirect_to transactions_path(@invoice.id)
+      redirect_to transactions_path(category_ids.first)
     else
       render :new
     end

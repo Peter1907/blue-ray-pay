@@ -1,19 +1,22 @@
-.transaction-form
-  %h1 New Transaction
-  = form_with model: @invoice, url: transactions_path, method: :post do |f|
-    .field
-      = f.label "Name:"
+.new-transaction.flex.flex-col.items-center.h-screen
+  .navbar.bg-gradient-to-b.from-blue1.to-blue2.h-24.w-screen.flex.items-center.text-white.justify-center.relative
+    %a{:href => categories_path, :class => "absolute top-10 left-4 text-5xl", :title => "Back"} ←
+    %h1.text-2xl.mt-8
+      NEW TRANSACTION
+  = form_with model: @invoice, url: transactions_path, method: :post, class: "w-screen max-w-[612px] p-2" do |f|
+    .field.my-4
       = f.text_field :name, placeholder: "Name", class: "w-[100%] border-none h-14 px-4 text-darker placeholder:text-light"
-    .field
-      = f.label "Category:"
+    .field.mb-4.flex.flex-col.gap-2.ml-4
+      = f.label "Category:", class: "text-darker text-xl"
       - if @categories.empty?
         %p You have no categories yet. Please create one first.
       - else
-        - @categories.each do |category|
-          = f.check_box :categories, { multiple: true }, category.id, nil
-          = f.label category.name
-    .field
-      = f.label "Amount:"
-      = f.number_field :amount, placeholder: "Amount", class: "w-[100%] border-none h-14 px-4 text-darker placeholder:text-light"
-    .actions
+        .check-boxes.flex.flex-col.items-start.gap-2.ml-4.text-lg.text-dark.font-light
+          - @categories.each do |category|
+            .option.flex.items-center.gap-2
+              = f.check_box :categories, { multiple: true }, category.id, nil
+              = f.label category.name
+    .field.mb-8
+      = f.number_field :amount, step: 0.01, placeholder: "Amount", class: "w-[100%] border-none h-14 px-4 text-darker placeholder:text-light"
+    .actions.text-center
       = f.submit "Create", class: "rounded bg-blue1 text-white py-4 w-[95%] text-center mt-auto cursor-pointer active:scale-95"
