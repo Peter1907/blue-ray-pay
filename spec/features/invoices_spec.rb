@@ -12,7 +12,7 @@ RSpec.describe 'Transactions page', type: :feature do
 
     Record.create(category_id: @category.id, invoice_id: @invoice1.id)
     Record.create(category_id: @category.id, invoice_id: @invoice2.id)
-    
+
     visit transactions_path(@category)
   end
 
