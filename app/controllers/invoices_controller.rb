@@ -40,6 +40,6 @@ class InvoicesController < ApplicationController
   end
 
   def record_params
-    params.require(:invoice).permit(:categories => [])
+    params.require(:invoice).permit(categories: [])
   end
 end
