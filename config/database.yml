@@ -84,6 +84,4 @@ test:
 #
 production:
   <<: *default
-  database: blue_ray_pay_production
-  username: blue_ray_pay
-  password: <%= ENV["BLUE_RAY_PAY_DATABASE_PASSWORD"] %>
+  database: <%= ENV['DATABASE_URL'] %>
