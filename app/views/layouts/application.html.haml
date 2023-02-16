@@ -11,12 +11,6 @@
     = javascript_importmap_tags
   %body
     %main.flex.flex-col.min-h-screen.items-center.font-p.font-normal.text-medium.bg-gray-100
-      - if current_user
-        = button_to "[➥", destroy_user_session_path, method: :delete,                 |
-          class: 'absolute top-28 right-2 p-2 font-bold hover:text-yellow             |
-            rounded-md sm:text-xl lg:text-2xl xl:text-3xl sm:right-8                  |
-            lg:right-14 xl:right-20 2xl:right-28',                                    |
-          title: 'Log-out'
       - if flash[:notice]
         %p.notice.fixed.top-0.right-0.left-0.bg-green-100.text-green-500.text-center.py-2.z-10
           = notice

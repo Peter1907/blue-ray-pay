@@ -3,6 +3,9 @@
     %a{:href => categories_path, :class => "absolute top-10 left-4 text-5xl", :title => "Back"} ←
     %h1.text-2xl.mt-8
       = "#{@category.name} Transactions"
+    = button_to "[➥", destroy_user_session_path, method: :delete, |
+      class: 'absolute top-12 right-3 font-bold text-2xl',        |
+      title: 'Log-out'
   .total.flex.items-center.self-end.p-2
     %h2.text-xl.text-darker
       Total:
