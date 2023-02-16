@@ -9,8 +9,8 @@
   .total.flex.items-center.self-end.p-2
     %h2.text-xl.text-darker
       Total:
-    %h3.text-xl.font-light.text-darker
-      = "$#{@category.total_invoices}"
+      %span.text-xl.font-light.text-darker
+        = "$#{@category.total_invoices}"
   .list.w-screen.flex.flex-col.items-center.p-2
     - if @invoices.length > 0
       - @invoices.each_with_index do |invoice, i|
