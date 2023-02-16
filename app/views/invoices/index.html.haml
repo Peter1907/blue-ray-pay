@@ -1,28 +1,29 @@
 .transactions(class="flex flex-col items-center min-h-screen w-[100%] max-w-[612px]")
-  .navbar.bg-gradient-to-b.from-blue1.to-blue2.h-24.w-screen.flex.items-center.text-white.justify-center.relative
+  .navbar.bg-gradient-to-b.from-blue1.to-blue2.h-24.w-screen.flex.items-center.text-white.justify-center.fixed
     %a{:href => categories_path, :class => "absolute top-10 left-4 text-5xl", :title => "Back"} ←
     %h1.text-2xl.mt-8
       = "#{@category.name} Transactions"
     = button_to "[➥", destroy_user_session_path, method: :delete, |
       class: 'absolute top-12 right-3 font-bold text-2xl',        |
       title: 'Log-out'
-  .total.flex.items-center.self-end.p-2
-    %h2.text-xl.text-darker
-      Total:
-    %h3.text-xl.font-light.text-darker
-      = "$#{@category.total_invoices}"
-  .list.w-screen.flex.flex-col.items-center.p-2
-    - if @invoices.length > 0
-      - @invoices.each_with_index do |invoice, i|
-        .transaction(class="bg-white rounded p-4 my-2 w-[100%] max-w-[612px] flex justify-between gap-4 items-center")
-          %h3.text-xl.text-darker.cursor-pointer
-            = "#{i + 1}. #{invoice.name}"
-          %p
-            %span.text-dark
-              Amount:
-            = "$#{invoice.amount}"
-    - else
-      %h2.font-semibold.text-3xl
-        No Transactions Yet
-  %div(class="bg-green text-white p-4 w-[100%] max-w-[612px] text-center mt-auto cursor-pointer flex flex-col items-stretch")
+  .content{class: "w-screen flex flex-col items-center px-2 pt-28 w-[100%] max-w-[612px] pb-24"}
+    .total.flex.items-center.self-end.p-2
+      %h2.text-xl.text-darker
+        Total:
+        %span.text-xl.font-light.text-darker
+          = "$#{@category.total_invoices}"
+    .list.w-screen.flex.flex-col.items-center.p-2
+      - if @invoices.length > 0
+        - @invoices.each_with_index do |invoice, i|
+          .transaction(class="bg-white rounded p-4 my-2 w-[100%] max-w-[612px] flex justify-between gap-4 items-center")
+            %h3.text-xl.text-darker.cursor-pointer
+              = "#{i + 1}. #{invoice.name}"
+            %p
+              %span.text-dark
+                Amount:
+              = "$#{invoice.amount}"
+      - else
+        %h2.font-semibold.text-3xl
+          No Transactions Yet
+  %div(class="fixed bottom-0 bg-green text-white p-4 w-[100%] max-w-[612px] text-center mt-auto cursor-pointer flex flex-col items-stretch")
     = link_to 'NEW TRANSACTION', new_transaction_path, class: "border border-white rounded bg-green text-white py-4 text-center mt-auto"
