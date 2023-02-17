@@ -1,18 +1,18 @@
 databases:
-  - name: blue-ray-pay
-    databaseName: capston_database
-    user: peter
+  - name: pb-database
+    databaseName: pb_database
+    user: peter1907
 
 services:
   - type: web
-    name: blue-ray-pay
+    name: Blue-ray-Pay
     env: ruby
-    buildCommand: './bin/render-build.sh'
-    startCommand: 'bundle exec puma -C config/puma.rb'
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: my-database
+          name: Blue-ray-Pay
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
