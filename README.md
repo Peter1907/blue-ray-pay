@@ -51,7 +51,7 @@ The application is a fully functional app that allows users to sign-up/log-in, c
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- Coming soon when the project is finished
+- [Live Demo](https://blue-ray-pay.onrender.com)
 
 ## Screenshots
 
@@ -149,7 +149,7 @@ Or for short:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Deployment using Heroku**
+- **To be added..**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
