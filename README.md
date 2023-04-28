@@ -51,7 +51,8 @@ The application is a fully functional app that allows users to sign-up/log-in, c
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo](https://blue-ray-pay.onrender.com)
+- [Live Demo](#)<br/>
+  This website is currently down
 
 ## Screenshots
 
